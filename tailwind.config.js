@@ -56,8 +56,7 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        tablet: '2rem',
+        DEFAULT: '2rem',
         laptop: '4rem',
         desktop: '5rem',
       },
@@ -77,5 +76,5 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
