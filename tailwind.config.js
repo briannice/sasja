@@ -34,23 +34,23 @@ module.exports = {
       },
 
       info: {
-        DEFAULT: '#467FD0',
-        dark: '#3F73BB',
+        DEFAULT: '#018BE2',
+        dark: '#0175D3',
       },
 
       success: {
-        DEFAULT: '#42BA96',
-        dark: '#3BA787',
+        DEFAULT: '#04B227',
+        dark: '#029C21',
       },
 
       error: {
-        DEFAULT: '#DF4759',
-        dark: '#C94050',
+        DEFAULT: '#F44336',
+        dark: '#D32F2F',
       },
 
       warning: {
-        DEFAULT: '#FFC107',
-        dark: '#E6AE06',
+        DEFAULT: '#FFA726',
+        dark: '#F57C00',
       },
     },
     container: {

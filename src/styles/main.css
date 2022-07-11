@@ -16,3 +16,61 @@
     @apply font-exo;
   }
 }
+
+@layer components {
+  .btn {
+    @apply shadow-md;
+  }
+
+  .btn-text {
+    @apply inline rounded-lg px-5 py-2 font-exo;
+  }
+
+  .btn-text-icon {
+    @apply inline-flex items-center space-x-4 rounded-lg px-5 py-2;
+  }
+
+  .btn-text-icon > span {
+    @apply font-exo;
+  }
+
+  .btn-text-icon > svg {
+    @apply h-5 w-5;
+  }
+
+  .btn-icon {
+    @apply rounded-full p-2;
+  }
+
+  .btn-icon > svg {
+    @apply h-6 w-6;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white transition-colors hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white transition-colors hover:bg-secondary-dark;
+  }
+
+  .btn-tertiary {
+    @apply bg-tertiary text-white transition-colors hover:bg-tertiary-dark;
+  }
+
+  .btn-success {
+    @apply bg-success text-white transition-colors hover:bg-success-dark;
+  }
+
+  .btn-warning {
+    @apply bg-warning text-white transition-colors hover:bg-warning-dark;
+  }
+
+  .btn-error {
+    @apply bg-error text-white transition-colors hover:bg-error-dark;
+  }
+
+  .btn-info {
+    @apply bg-info text-white transition-colors hover:bg-info-dark;
+  }
+}
