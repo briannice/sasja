@@ -31,7 +31,7 @@
   [multiple],
   textarea,
   select {
-    @apply w-full rounded-lg border-medium shadow-sm focus:border-primary focus:ring-primary;
+    @apply w-full rounded-lg border-medium py-2 shadow-sm focus:border-primary focus:ring-primary;
   }
 }
 
