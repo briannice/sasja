@@ -1,11 +1,11 @@
 import InputText from '@components/input/InputText'
 import Loading from '@components/Loading'
 import { LoginIcon } from '@heroicons/react/outline'
+import { auth } from '@services/firebase'
 import { AuthError, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { FormEventHandler, useEffect, useState } from 'react'
-import { auth } from 'src/services/firebase'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -18,7 +18,7 @@ export default function LoginPage() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        router.replace('/admin/login')
+        router.replace('/admin/dashboard')
       } else {
         setIsLoading(false)
       }
@@ -63,7 +63,7 @@ export default function LoginPage() {
             name="Wachtwoord"
             value={password}
             onChange={setPassword}
-            className="mt-5"
+            className="mt-4"
           />
           <button
             type="submit"

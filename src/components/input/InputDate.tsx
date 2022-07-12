@@ -1,7 +1,7 @@
 import InputWrapper from '@components/input/InputWrapper'
+import { dateToString } from '@utils/date'
 import { Timestamp } from 'firebase/firestore'
 import React, { ChangeEventHandler } from 'react'
-import { dateToString } from 'src/utils/date'
 
 type Props = {
   name: string
