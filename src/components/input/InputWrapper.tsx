@@ -5,12 +5,12 @@ import { useState } from 'react'
 
 type Props = {
   children: ReactNode
-  info: string
   name: string
   className?: string | undefined
+  info?: string | undefined
 }
 
-export default function InputWrapper({ children, info, name, className }: Props) {
+export default function InputWrapper({ children, name, className, info }: Props) {
   const [showInfo, setShowInfo] = useState(false)
 
   return (
@@ -18,17 +18,21 @@ export default function InputWrapper({ children, info, name, className }: Props)
       <label htmlFor={name} className="block font-exo">
         {name}
       </label>
-      <div className="flex items-center justify-end">
-        <QuestionMarkCircleIcon
-          onMouseEnter={() => setShowInfo(true)}
-          onMouseLeave={() => setShowInfo(false)}
-          className="h-4 w-4 text-primary"
-        />
-      </div>
-      {showInfo && (
-        <p className="absolute left-2 right-6 rounded-lg border border-medium bg-white p-1 text-xs text-dark shadow">
-          {info}
-        </p>
+      {info && (
+        <>
+          <div className="flex items-center justify-end">
+            <QuestionMarkCircleIcon
+              onMouseEnter={() => setShowInfo(true)}
+              onMouseLeave={() => setShowInfo(false)}
+              className="h-4 w-4 text-primary"
+            />
+          </div>
+          {showInfo && (
+            <p className="absolute left-2 right-6 rounded-lg border border-medium bg-white p-1 text-xs text-dark shadow">
+              {info}
+            </p>
+          )}
+        </>
       )}
       <div className="col-span-2">{children}</div>
     </div>

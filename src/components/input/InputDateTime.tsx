@@ -4,14 +4,14 @@ import React, { ChangeEventHandler } from 'react'
 import { dateToString } from 'src/utils/date'
 
 type Props = {
-  info: string
   name: string
   onChange: (v: Timestamp) => void
   value: Timestamp
   className?: string | undefined
+  info?: string | undefined
 }
 
-export default function InputDateTime({ info, name, onChange, value, className }: Props) {
+export default function InputDateTime({ name, onChange, value, className, info }: Props) {
   const inputValue = dateToString(value.toDate(), 'YYYY-MM-DDTHH:mm')
 
   const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
