@@ -5,10 +5,10 @@ export default function Loading() {
     <div className="absolute inset-0 flex items-center justify-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 300 100"
+        viewBox="0 0 300 200"
         className="h-8 w-24 text-primary"
       >
-        <circle fill="currentColor" cx="50" cy="50" r="20">
+        <circle fill="currentColor" cx="50" cy="100" r="40">
           <animateTransform
             attributeName="transform"
             dur="1s"
@@ -18,7 +18,7 @@ export default function Loading() {
             begin="0.0"
           />
         </circle>
-        <circle fill="currentColor" stroke="none" cx="150" cy="50" r="20">
+        <circle fill="currentColor" stroke="none" cx="150" cy="100" r="40">
           <animateTransform
             attributeName="transform"
             dur="1s"
@@ -28,7 +28,7 @@ export default function Loading() {
             begin="0.2"
           />
         </circle>
-        <circle fill="currentColor" stroke="none" cx="250" cy="50" r="20">
+        <circle fill="currentColor" stroke="none" cx="250" cy="100" r="40">
           <animateTransform
             attributeName="transform"
             dur="1s"
