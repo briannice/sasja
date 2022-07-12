@@ -8,7 +8,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
 
   return (
-    <main className="flex h-screen flex-row-reverse">
+    <main className="flex h-screen">
       <h1 className="sr-only">Sasja Admin Login</h1>
       <figure className="relative flex-auto">
         <Image src="/handball-field.jpg" alt="handball field" layout="fill" objectFit="cover" />
