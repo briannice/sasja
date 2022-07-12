@@ -16,6 +16,34 @@
     @apply font-exo;
   }
 
+  table {
+    @apply min-w-full table-auto border-separate border-spacing-0 shadow-sm;
+  }
+
+  thead {
+    @apply text-white;
+  }
+
+  th {
+    @apply border border-primary bg-primary px-3  py-2 text-left font-exo font-extrabold first:rounded-tl-lg last:rounded-tr-lg;
+  }
+
+  td {
+    @apply border-light px-3 py-3 text-left first:border-l last:border-r;
+  }
+
+  tbody > tr:last-child > td {
+    @apply border-b first:rounded-bl-lg last:rounded-br-lg;
+  }
+
+  tbody > tr > td {
+    @apply border-t;
+  }
+
+  tbody > tr:first-child > td {
+    @apply border-t-0;
+  }
+
   [type='text'],
   [type='email'],
   [type='url'],
@@ -45,7 +73,7 @@
   }
 
   .btn-text-icon {
-    @apply inline-flex items-center space-x-4 rounded-lg px-5 py-2;
+    @apply inline-flex items-center space-x-4 rounded-lg px-5 py-2 font-exo;
   }
 
   .btn-text-icon > span {
