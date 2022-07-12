@@ -1,11 +1,46 @@
 import InputText from '@components/input/InputText'
+import Loading from '@components/Loading'
 import { LoginIcon } from '@heroicons/react/outline'
+import { AuthError, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import React, { FormEventHandler, useEffect, useState } from 'react'
+import { auth } from 'src/services/firebase'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.replace('/admin/login')
+      } else {
+        setIsLoading(false)
+      }
+    })
+  }, [router])
+
+  const logInHandler: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault()
+
+    setIsLoading(true)
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        router.push('/admin/dashboard')
+      })
+      .catch((err: AuthError) => {
+        setError(err.message)
+        setIsLoading(false)
+      })
+  }
+
+  if (isLoading) return <Loading />
 
   return (
     <main className="flex h-screen">
@@ -21,7 +56,7 @@ export default function LoginPage() {
           tenetur molestiae, blanditiis similique explicabo.
         </p>
         <span className="mt-8 block h-0.5 rounded-full bg-primary" />
-        <form className="mt-8">
+        <form onSubmit={logInHandler} className="mt-8">
           <InputText type="email" name="Email" value={email} onChange={setEmail} />
           <InputText
             type="password"
@@ -30,11 +65,15 @@ export default function LoginPage() {
             onChange={setPassword}
             className="mt-5"
           />
-          <button className="btn btn-primary btn-text-icon mt-8 w-full justify-between">
+          <button
+            type="submit"
+            className="btn btn-primary btn-text-icon mt-8 w-full justify-between"
+          >
             <span>Aanmelden</span>
             <LoginIcon />
           </button>
         </form>
+        <p className="mt-5 text-primary">{error && error}</p>
       </section>
     </main>
   )
