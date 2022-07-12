@@ -8,9 +8,10 @@ type Props = {
   name: string
   onChange: (v: Timestamp) => void
   value: Timestamp
+  className?: string | undefined
 }
 
-export default function InputDateTime({ info, name, onChange, value }: Props) {
+export default function InputDateTime({ info, name, onChange, value, className }: Props) {
   const inputValue = dateToString(value.toDate(), 'YYYY-MM-DDTHH:mm')
 
   const onChangeInput: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -20,7 +21,7 @@ export default function InputDateTime({ info, name, onChange, value }: Props) {
   }
 
   return (
-    <InputWrapper name={name} info={info}>
+    <InputWrapper name={name} info={info} className={className}>
       <input
         type="datetime-local"
         name={name}

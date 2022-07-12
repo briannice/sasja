@@ -1,4 +1,5 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
 import React, { ReactNode } from 'react'
 import { useState } from 'react'
 
@@ -6,13 +7,14 @@ type Props = {
   children: ReactNode
   info: string
   name: string
+  className?: string | undefined
 }
 
-export default function InputWrapper({ children, info, name }: Props) {
+export default function InputWrapper({ children, info, name, className }: Props) {
   const [showInfo, setShowInfo] = useState(false)
 
   return (
-    <div className="relative grid grid-cols-2 gap-2">
+    <div className={clsx('relative grid grid-cols-2 gap-2', className)}>
       <label htmlFor={name} className="block font-exo">
         {name}
       </label>

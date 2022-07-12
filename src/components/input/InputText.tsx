@@ -7,11 +7,12 @@ type Props = {
   onChange: (v: string) => void
   type: 'text' | 'password' | 'email'
   value: string
+  className?: string | undefined
 }
 
-export default function InputText({ info, name, onChange, type, value }: Props) {
+export default function InputText({ info, name, onChange, type, value, className }: Props) {
   return (
-    <InputWrapper name={name} info={info}>
+    <InputWrapper name={name} info={info} className={className}>
       <input
         type={type}
         name={name}
