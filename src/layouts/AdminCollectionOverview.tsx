@@ -2,6 +2,7 @@ import Loading from '@components/Loading'
 import { DocumentAddIcon, PlusCircleIcon } from '@heroicons/react/outline'
 import { db } from '@services/firebase'
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
+import { useRouter } from 'next/router'
 import React, { ReactNode, useEffect, useState } from 'react'
 
 type ChildProps<T> = {
@@ -11,13 +12,21 @@ type ChildProps<T> = {
 type Props<T> = {
   children: (props: ChildProps<T>) => ReactNode
   collectionName: string
+  createNewDocument: () => Promise<string>
   name: string
 }
 
-export default function AdminCollectionOverview<T>({ children, collectionName, name }: Props<T>) {
+export default function AdminCollectionOverview<T>({
+  children,
+  collectionName,
+  createNewDocument,
+  name,
+}: Props<T>) {
   const [documents, setDocuments] = useState<T[] | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [hasMoreDocuments, setHasMoreDocuments] = useState(true)
+
+  const router = useRouter()
 
   useEffect(() => {
     const fetchDocuments = async () => {
@@ -36,13 +45,18 @@ export default function AdminCollectionOverview<T>({ children, collectionName, n
     fetchDocuments()
   }, [collectionName])
 
+  const createNewDocumentHandler = async () => {
+    const id = await createNewDocument()
+    router.push(`${name}/${id}`)
+  }
+
   if (isLoading || !documents) return <Loading />
 
   return (
     <>
       <div className="flex justify-between">
-        <h1 className="text-3xl">{name}</h1>
-        <button className="btn btn-primary btn-text-icon">
+        <h1 className="text-3xl capitalize">{name}</h1>
+        <button onClick={createNewDocumentHandler} className="btn btn-primary btn-text-icon">
           <span>Nieuw</span>
           <DocumentAddIcon />
         </button>

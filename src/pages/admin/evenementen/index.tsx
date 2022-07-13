@@ -1,10 +1,17 @@
+import ActionButtons from '@components/admin/ActionButtons'
 import AdminCollectionOverview from '@layouts/AdminCollectionOverview'
+import { createNewEvent, EventDocument } from '@services/firebase/firestore/events'
+import { timestampToString } from '@utils/date'
 import React from 'react'
 
 export default function EventPage() {
   return (
-    <AdminCollectionOverview collectionName="events" name="Evenementen">
-      {({}) => (
+    <AdminCollectionOverview<EventDocument>
+      collectionName="events"
+      createNewDocument={createNewEvent}
+      name="evenementen"
+    >
+      {({ documents }) => (
         <table>
           <thead>
             <tr>
@@ -17,14 +24,20 @@ export default function EventPage() {
             </tr>
           </thead>
           <tbody>
-            {[0, 0, 0, 0].map((v) => (
-              <tr key={v}>
-                <td>My title</td>
-                <td>Ieh45U5UffU9</td>
-                <td>20/06/22 15:45</td>
-                <td>20/06/22 15:45</td>
-                <td>No</td>
-                <td>ok</td>
+            {documents.map((doc) => (
+              <tr key={doc.id}>
+                <td>{doc.name}</td>
+                <td>{doc.id}</td>
+                <td>{timestampToString(doc.updated, 'YYYY-MM-DD HH:mm')}</td>
+                <td>{timestampToString(doc.created, 'YYYY-MM-DD HH:mm')}</td>
+                <td>{doc.published}</td>
+                <td>
+                  <ActionButtons
+                    deleteHandler={() => console.log('Delete')}
+                    editLink={`/admin/evenementen/${doc.id}`}
+                    viewLink={`/evenementen/${doc.id}`}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
