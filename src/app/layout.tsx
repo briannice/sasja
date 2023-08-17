@@ -1,7 +1,7 @@
-import "@/styles/main.css";
+import '@/styles/main.css'
 
 interface RootLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -9,5 +9,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="nl">
       <body>{children}</body>
     </html>
-  );
+  )
 }
