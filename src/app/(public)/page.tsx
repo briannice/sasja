@@ -1,11 +1,9 @@
 import React from 'react'
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main className="container">
-      <div className="bg-primary">
-        <h1>Public</h1>
-      </div>
+    <main className="container bg-primary">
+      <h1>Public</h1>
     </main>
   )
 }
