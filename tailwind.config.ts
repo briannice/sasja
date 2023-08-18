@@ -54,7 +54,16 @@ const config: Config = {
         DEFAULT: 'var(--border)',
       },
     },
+    fontFamily: {
+      inter: ['var(--font-inter)'],
+    },
+    fontWeight: {
+      normal: '400',
+      medium: '600',
+      bold: '800',
+    },
   },
   plugins: [],
 }
+
 export default config
