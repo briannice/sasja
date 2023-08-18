@@ -54,6 +54,18 @@ const config: Config = {
         DEFAULT: 'var(--border)',
       },
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '2rem',
+        lg: '3rem',
+        xl: '4rem',
+      },
+      screens: {
+        lg: '1024px',
+        xl: '1280px',
+      },
+    },
     fontFamily: {
       inter: ['var(--font-inter)'],
     },
@@ -61,6 +73,11 @@ const config: Config = {
       normal: '400',
       medium: '600',
       bold: '800',
+    },
+    screens: {
+      md: '640px',
+      lg: '1024px',
+      xl: '1280px',
     },
   },
   plugins: [],

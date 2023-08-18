@@ -2,8 +2,10 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <main>
-      <h1>Public</h1>
+    <main className="container">
+      <div className="bg-primary">
+        <h1>Public</h1>
+      </div>
     </main>
   )
 }
