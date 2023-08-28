@@ -67,12 +67,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      inter: ['var(--font-inter)'],
-    },
-    fontWeight: {
-      normal: '400',
-      medium: '600',
-      bold: '800',
+      title: ['var(--font-kanit)'],
+      text: ['var(--font-roboto)'],
     },
     screens: {
       md: '640px',

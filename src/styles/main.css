@@ -46,6 +46,6 @@
 
 @layer base {
   body {
-    @apply bg-bg font-inter text-text;
+    @apply bg-bg font-text text-text;
   }
 }
