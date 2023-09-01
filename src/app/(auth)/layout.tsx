@@ -1,5 +1,7 @@
 import React from 'react'
 
+import AuthGuard from '@/components/auth/AuthGuard'
+
 import '@/styles/main.css'
 
 interface AuthLayoutProps {
@@ -7,5 +9,11 @@ interface AuthLayoutProps {
 }
 
 export default function RootLayout({ children }: AuthLayoutProps) {
-  return <body>{children}</body>
+  return (
+    <body>
+      <AuthGuard redirectTo="/dashboard" type="public">
+        {children}
+      </AuthGuard>
+    </body>
+  )
 }
