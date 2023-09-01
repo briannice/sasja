@@ -26,7 +26,7 @@ const config: Config = {
         text: 'var(--color-secondary-text)',
       },
       tertiary: {
-        DEFAUL: 'var(--color-tertiary)',
+        DEFAULT: 'var(--color-tertiary)',
         dark: 'var(--color-tertiary-dark)',
         text: 'var(--color-tertiary-text)',
       },
@@ -49,6 +49,11 @@ const config: Config = {
         DEFAULT: 'var(--color-info)',
         dark: 'var(--color-info-dark)',
         text: 'var(--color-info-text)',
+      },
+      link: {
+        DEFAULT: 'var(--color-link)',
+        dark: 'var(--color-link-dark)',
+        text: 'var(--color-link-text)',
       },
       border: {
         DEFAULT: 'var(--color-border)',
