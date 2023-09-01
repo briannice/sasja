@@ -12,6 +12,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="nl" className={cn(kanit.variable, roboto.variable)}>
+      <link rel="icon" href="/logo.png" />
       {children}
     </html>
   )
